@@ -6,105 +6,88 @@
 <title>Emile & Ange — Coordination</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --green: #1B5E3B;
-  --burgundy: #6B1D3A;
-  --gold: #C9A84C;
-  --gold-light: #E0C97A;
-  --white: #FAFAF7;
-  --cream: #F5F0E8;
-  --text: #2C2420;
-  --text-light: #6B6560;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--cream); color: var(--text);
-  min-height: 100vh; -webkit-font-smoothing: antialiased;
-}
+:root{--green:#1B5E3B;--burgundy:#6B1D3A;--gold:#C9A84C;--gold-light:#E0C97A;--white:#FAFAF7;--cream:#F5F0E8;--text:#2C2420;--text-light:#6B6560}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
 
-.hero {
-  position: relative; min-height: 100vh; min-height: 100dvh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
-  background: linear-gradient(160deg, var(--green) 0%, #163D2B 40%, var(--burgundy) 100%);
-  overflow: hidden; padding: 2rem;
-}
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 20%, rgba(201,168,76,0.15) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.1) 0%, transparent 50%);
-}
-.hero-content { position: relative; z-index: 1; }
-.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 400; color: var(--white); letter-spacing: 0.05em; line-height: 1.1; }
-.hero .ampersand { display: block; font-size: 0.5em; color: var(--gold); margin: 0.2em 0; font-style: italic; }
-.hero .date { margin-top: 1.5rem; font-size: 1rem; font-weight: 300; color: var(--gold-light); letter-spacing: 0.3em; text-transform: uppercase; }
-.hero .badge-coord { margin-top: 1.2rem; display: inline-block; padding: 0.4rem 1.2rem; border-radius: 20px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); font-size: 0.7rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.15em; text-transform: uppercase; }
-.scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--gold); opacity: 0.6; animation: bounce 2s infinite; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 1; }
-@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,var(--green) 0%,#163D2B 40%,var(--burgundy) 100%);overflow:hidden;padding:2rem}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(201,168,76,.1) 0%,transparent 50%)}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:400;color:var(--white);letter-spacing:.05em;line-height:1.1}
+.hero .ampersand{display:block;font-size:.5em;color:var(--gold);margin:.2em 0;font-style:italic}
+.hero .date{margin-top:1.5rem;font-size:1rem;font-weight:300;color:var(--gold-light);letter-spacing:.3em;text-transform:uppercase}
+.hero .badge-coord{margin-top:1.2rem;display:inline-block;padding:.4rem 1.2rem;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-size:.7rem;font-weight:600;color:var(--gold-light);letter-spacing:.15em;text-transform:uppercase}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gold);opacity:.6;animation:bounce 2s infinite;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;z-index:1}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-.countdown-bar { background: var(--green); color: var(--white); padding: 1rem 2rem; text-align: center; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.1em; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
-.countdown-bar .live-dot { display: inline-block; width: 8px; height: 8px; background: #e74c3c; border-radius: 50%; margin-right: 8px; animation: pulse-dot 1.5s infinite; vertical-align: middle; }
-@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.countdown-bar{background:var(--green);color:var(--white);padding:1rem 2rem;text-align:center;font-size:.85rem;font-weight:400;letter-spacing:.1em;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.countdown-bar .live-dot{display:inline-block;width:8px;height:8px;background:#e74c3c;border-radius:50%;margin-right:8px;animation:pulse-dot 1.5s infinite;vertical-align:middle}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
 
-.timeline-section { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.delay-control{background:var(--burgundy);color:var(--white);padding:.7rem 1.5rem;text-align:center;position:sticky;top:52px;z-index:99;display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.delay-control button{padding:.4rem .9rem;border-radius:6px;border:none;font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s}
+.delay-control .btn-delay{background:#e74c3c;color:#fff}
+.delay-control .btn-delay:hover{background:#c0392b}
+.delay-control .btn-delay.active{background:#f39c12}
+.delay-control .btn-ok{background:#27ae60;color:#fff}
+.delay-control .btn-reset{background:rgba(255,255,255,.15);color:#fff}
+.delay-control input{width:55px;padding:.35rem .5rem;border-radius:6px;border:none;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;text-align:center;background:rgba(255,255,255,.9);color:var(--text)}
+.delay-control .delay-label{font-size:.75rem;font-weight:400;opacity:.8}
+.delay-banner{background:#f39c12;color:#2C2420;padding:.5rem 1rem;text-align:center;font-size:.8rem;font-weight:600;display:none}
+.delay-banner.visible{display:block}
 
-.section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; text-align: center; margin: 3rem 0 2rem; color: var(--green); }
-.section-title:first-child { margin-top: 1rem; }
-.section-title::after { content: ''; display: block; width: 40px; height: 2px; background: var(--gold); margin: 0.5rem auto 0; }
+.progress-track{position:fixed;left:0;top:0;bottom:0;width:4px;background:rgba(27,94,59,.1);z-index:50}
+.progress-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(180deg,var(--green),var(--gold));transition:height .8s ease;border-radius:0 0 2px 2px}
+.progress-dot{position:absolute;left:-4px;width:12px;height:12px;background:var(--green);border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 8px rgba(27,94,59,.4);transition:top .8s ease}
 
-.event { position: relative; padding: 1.4rem 1.4rem 1.4rem 5.5rem; margin-bottom: 0.5rem; border-radius: 12px; transition: all 0.4s ease; border-left: 3px solid transparent; }
-.event::before { content: ''; position: absolute; left: 3.1rem; top: 0; bottom: 0; width: 1px; background: rgba(107,29,58,0.15); }
-.event:last-child::before { display: none; }
-.event .time-badge { position: absolute; left: 0; top: 1.4rem; width: 2.6rem; text-align: center; font-size: 0.72rem; font-weight: 600; color: var(--burgundy); line-height: 1.3; }
-.event .dot { position: absolute; left: 2.85rem; top: 1.7rem; width: 10px; height: 10px; border-radius: 50%; background: var(--cream); border: 2px solid var(--burgundy); z-index: 1; transition: all 0.3s ease; }
-.event .title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.3rem; line-height: 1.3; }
-.event .detail { font-size: 0.88rem; color: var(--text); font-weight: 400; line-height: 1.6; opacity: 0.75; }
+.timeline-section{max-width:760px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;text-align:center;margin:3rem 0 2rem;color:var(--green)}
+.section-title:first-child{margin-top:1rem}
+.section-title::after{content:'';display:block;width:40px;height:2px;background:var(--gold);margin:.5rem auto 0}
 
-.event .responsable { margin-top: 0.4rem; font-size: 0.78rem; color: var(--green); font-weight: 500; }
-.event .responsable::before { content: '👤 '; }
+.event{position:relative;padding:1.4rem 1.4rem 1.4rem 5.5rem;margin-bottom:.5rem;border-radius:12px;transition:all .4s ease;border-left:3px solid transparent}
+.event::before{content:'';position:absolute;left:3.1rem;top:0;bottom:0;width:1px;background:rgba(107,29,58,.15)}
+.event:last-child::before{display:none}
+.event .time-badge{position:absolute;left:0;top:1.4rem;width:2.6rem;text-align:center;font-size:.72rem;font-weight:600;color:var(--burgundy);line-height:1.3}
+.event .dot{position:absolute;left:2.85rem;top:1.7rem;width:10px;height:10px;border-radius:50%;background:var(--cream);border:2px solid var(--burgundy);z-index:1;transition:all .3s ease}
+.event .title{font-weight:600;font-size:1.05rem;margin-bottom:.3rem;line-height:1.3}
+.event .detail{font-size:.88rem;color:var(--text);font-weight:400;line-height:1.6;opacity:.75}
+.event .responsable{margin-top:.4rem;font-size:.78rem;color:var(--green);font-weight:500}
+.event .responsable::before{content:'👤 '}
+.event .orga-note{margin-top:.5rem;padding:.5rem .75rem;background:rgba(107,29,58,.06);border-left:3px solid var(--burgundy);border-radius:0 6px 6px 0;font-size:.78rem;color:var(--burgundy);font-weight:400;line-height:1.5}
 
-.event .orga-note { margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(107,29,58,0.06); border-left: 3px solid var(--burgundy); border-radius: 0 6px 6px 0; font-size: 0.78rem; color: var(--burgundy); font-weight: 400; line-height: 1.5; }
+.address-block{margin-top:.7rem;padding:.75rem 1rem;background:rgba(27,94,59,.06);border-radius:8px;border:1px solid rgba(27,94,59,.12)}
+.address-text{font-size:.84rem;font-weight:500;color:var(--green);margin-bottom:.5rem;line-height:1.4}
+.nav-links{display:flex;gap:.5rem;flex-wrap:wrap}
+.nav-links a{display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .9rem;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;transition:all .2s ease}
+.nav-links a.gmaps{background:#E8F5E9;color:#1B7A3D}.nav-links a.gmaps:hover{background:#C8E6C9}
+.nav-links a.waze{background:#E3F2FD;color:#1565C0}.nav-links a.waze:hover{background:#BBDEFB}
+.nav-links a.apple{background:#F3E5F5;color:#7B1FA2}.nav-links a.apple:hover{background:#E1BEE7}
 
-.address-block { margin-top: 0.7rem; padding: 0.75rem 1rem; background: rgba(27,94,59,0.06); border-radius: 8px; border: 1px solid rgba(27,94,59,0.12); }
-.address-text { font-size: 0.84rem; font-weight: 500; color: var(--green); margin-bottom: 0.5rem; line-height: 1.4; }
-.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.nav-links a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.45rem 0.9rem; border-radius: 6px; font-size: 0.78rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
-.nav-links a.gmaps { background: #E8F5E9; color: #1B7A3D; }
-.nav-links a.gmaps:hover { background: #C8E6C9; }
-.nav-links a.waze { background: #E3F2FD; color: #1565C0; }
-.nav-links a.waze:hover { background: #BBDEFB; }
-.nav-links a.apple { background: #F3E5F5; color: #7B1FA2; }
-.nav-links a.apple:hover { background: #E1BEE7; }
+.event.past{opacity:.4}.event.past .dot{background:var(--burgundy);border-color:var(--burgundy)}
+.event.active{background:linear-gradient(135deg,rgba(27,94,59,.07),rgba(201,168,76,.07));border-left-color:var(--green);box-shadow:0 2px 12px rgba(27,94,59,.08)}
+.event.active .dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 4px rgba(27,94,59,.2);animation:pulse-dot 1.5s infinite}
+.event.active .title{color:var(--green)}.event.active .time-badge{color:var(--green);font-weight:700}.event.active .detail{opacity:1}
+.event.upcoming .dot{background:var(--cream);border-color:var(--gold)}
 
-.event.past { opacity: 0.4; }
-.event.past .dot { background: var(--burgundy); border-color: var(--burgundy); }
-.event.active { background: linear-gradient(135deg, rgba(27,94,59,0.07), rgba(201,168,76,0.07)); border-left-color: var(--green); box-shadow: 0 2px 12px rgba(27,94,59,0.08); }
-.event.active .dot { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 4px rgba(27,94,59,0.2); animation: pulse-dot 1.5s infinite; }
-.event.active .title { color: var(--green); }
-.event.active .time-badge { color: var(--green); font-weight: 700; }
-.event.active .detail { opacity: 1; }
-.event.upcoming .dot { background: var(--cream); border-color: var(--gold); }
+.addresses-recap{max-width:760px;margin:0 auto;padding:0 1.5rem 2rem}
+.addr-card{margin-bottom:.6rem}
 
-.addresses-recap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 2rem; }
-.addresses-recap h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--green); margin-bottom: 1rem; text-align: center; }
-.addr-card { margin-bottom: 0.6rem; }
+.footer{text-align:center;padding:3rem 1.5rem;background:linear-gradient(160deg,var(--green),var(--burgundy));color:var(--white)}
+.footer h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;margin-bottom:.5rem}
+.footer p{font-size:.8rem;color:var(--gold-light);font-weight:300}
 
-.footer { text-align: center; padding: 3rem 1.5rem; background: linear-gradient(160deg, var(--green), var(--burgundy)); color: var(--white); }
-.footer h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; }
-.footer p { font-size: 0.8rem; color: var(--gold-light); font-weight: 300; }
-
-@media (max-width: 480px) {
-  .event { padding-left: 4.5rem; padding-right: 1rem; }
-  .event .time-badge { width: 2.2rem; font-size: 0.68rem; }
-  .event::before { left: 2.7rem; }
-  .event .dot { left: 2.45rem; }
-  .nav-links { flex-direction: column; }
-  .nav-links a { justify-content: center; }
+@media(max-width:480px){
+.event{padding-left:4.5rem;padding-right:1rem}.event .time-badge{width:2.2rem;font-size:.68rem}.event::before{left:2.7rem}.event .dot{left:2.45rem}
+.nav-links{flex-direction:column}.nav-links a{justify-content:center}
+.delay-control{padding:.6rem .8rem;gap:.4rem}
+.progress-track{width:3px}.progress-dot{width:10px;height:10px;left:-3.5px}
 }
 </style>
 </head>
 <body>
+
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div><div class="progress-dot" id="progressDot"></div></div>
 
 <div class="hero">
   <div class="hero-content">
@@ -117,346 +100,117 @@ body {
 
 <div class="countdown-bar" id="statusBar">Chargement…</div>
 
-<!-- ADRESSES RECAP -->
+<div class="delay-control" id="delayControl">
+  <span class="delay-label">Retard :</span>
+  <button class="btn-delay" id="btnDelay" onclick="toggleDelay()">⚠ Signaler</button>
+  <input type="number" id="delayMin" placeholder="min" min="0" max="180" style="display:none">
+  <button class="btn-ok" id="btnConfirm" onclick="confirmDelay()" style="display:none">✓ OK</button>
+  <button class="btn-reset" id="btnReset" onclick="resetDelay()" style="display:none">✕ Annuler</button>
+</div>
+<div class="delay-banner" id="delayBanner"></div>
+
 <div class="addresses-recap">
   <div class="section-title">Adresses clés</div>
-
-  <div class="addr-card">
-    <div class="address-block">
-      <div class="address-text">📍 Chez Tante Rose — 9 Rue de la Goutte d'Or, 21000 Dijon</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="addr-card">
-    <div class="address-block">
-      <div class="address-text">📍 Chez les mariés — 36 bd Voltaire, 21000 Dijon</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=36+boulevard+Voltaire+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=36+boulevard+Voltaire+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=36+boulevard+Voltaire+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="addr-card">
-    <div class="address-block">
-      <div class="address-text">📍 Église — Sanctuaire Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+Rue+de+l%27Eglise+21600+Fenay" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="addr-card">
-    <div class="address-block">
-      <div class="address-text">📍 Photos — 1 Allée de la Mairie, Longvic</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=1+Allee+de+la+Mairie+Longvic&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="addr-card">
-    <div class="address-block">
-      <div class="address-text">📍 Salle de réception — 16 rue Lieu dit Préville, 21600 Ouges</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
+  <div class="addr-card"><div class="address-block"><div class="address-text">📍 Chez Tante Rose — 9 Rue de la Goutte d'Or, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="addr-card"><div class="address-block"><div class="address-text">📍 Chez les mariés — 36 bd Voltaire, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=36+boulevard+Voltaire+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=36+boulevard+Voltaire+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=36+boulevard+Voltaire+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="addr-card"><div class="address-block"><div class="address-text">📍 Église — Sanctuaire Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+Rue+de+l%27Eglise+21600+Fenay" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="addr-card"><div class="address-block"><div class="address-text">📍 Photos — 1 Allée de la Mairie, Longvic</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=1+Allee+de+la+Mairie+Longvic&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="addr-card"><div class="address-block"><div class="address-text">📍 Salle de réception — 16 rue Lieu dit Préville, 21600 Ouges</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
 </div>
 
-<div class="timeline-section">
-
+<div class="timeline-section" id="timeline">
   <div class="section-title">Matin</div>
-
-  <div class="event" data-start="12:00" data-end="13:15">
-    <div class="time-badge">12h00</div>
-    <div class="dot"></div>
-    <div class="title">Le marié va chercher la mariée</div>
-    <div class="detail">Départ de chez Tante Rose.</div>
-    <div class="responsable">Emile / Vicky / Angélique</div>
-    <div class="orga-note">⚙ Communiquer toutes les adresses à Vicky. Angélique doit s'assurer que le marié est à l'heure dans tous les déplacements.</div>
-    <div class="address-block">
-      <div class="address-text">📍 Chez Tante Rose — 9 Rue de la Goutte d'Or, 21000 Dijon</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
+  <div class="event" data-start="12:00" data-end="13:15"><div class="time-badge">12h00</div><div class="dot"></div><div class="title">Le marié va chercher la mariée</div><div class="detail">Départ de chez Tante Rose.</div><div class="responsable">Emile / Vicky / Angélique</div><div class="orga-note">⚙ Communiquer toutes les adresses à Vicky. Angélique s'assure que le marié est à l'heure dans tous les déplacements.</div><div class="address-block"><div class="address-text">📍 Chez Tante Rose — 9 Rue de la Goutte d'Or, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
 
   <div class="section-title">Cérémonie — 14h</div>
-
-  <div class="event" data-start="13:15" data-end="14:00">
-    <div class="time-badge">13h15</div>
-    <div class="dot"></div>
-    <div class="title">Accueil des invités à l'église</div>
-    <div class="detail">Placement des familles : gauche Ange, droite Emile.</div>
-    <div class="responsable">Immaculée / Eric / Leslie / Fabrice</div>
-    <div class="orga-note">⚙ Gère l'ordre et les places.</div>
-    <div class="address-block">
-      <div class="address-text">📍 Église Sanctuaire Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+Rue+de+l%27Eglise+21600+Fenay" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="event" data-start="14:00" data-end="14:30">
-    <div class="time-badge">14h00</div>
-    <div class="dot"></div>
-    <div class="title">Entrée en procession</div>
-    <div class="detail">2 musiques (~2 min). Ordre : prêtres, dames d'honneur, garçons &amp; filles d'honneur, entrée des mariés. Pétales à la sortie.</div>
-    <div class="responsable">Immaculée avec Leslie</div>
-  </div>
-
-  <div class="event" data-start="14:30" data-end="16:00">
-    <div class="time-badge">14h30</div>
-    <div class="dot"></div>
-    <div class="title">Messe</div>
-    <div class="detail">Cérémonie religieuse.</div>
-    <div class="responsable">Angélique</div>
-    <div class="orga-note">⚙ Alliances portées par Alice. Pétales par Honoré et Ituze. La marraine gère la procession des alliances pour la bénédiction — s'assurer qu'elle a les alliances à l'arrivée à l'église.</div>
-  </div>
-
-  <div class="event" data-start="16:00" data-end="16:30">
-    <div class="time-badge">Fin de messe</div>
-    <div class="dot"></div>
-    <div class="title">Annonce de sortie &amp; photos de groupe</div>
-    <div class="detail">MC Norbert donne les consignes de sortie, photos de groupe devant l'église, heure de rdv à la salle.</div>
-    <div class="responsable">MC Norbert</div>
-    <div class="orga-note">⚙ Prévoir une petite boîte amuse-bouche pour l'organiste (repart après la messe).</div>
-  </div>
+  <div class="event" data-start="13:15" data-end="14:00"><div class="time-badge">13h15</div><div class="dot"></div><div class="title">Accueil des invités à l'église</div><div class="detail">Placement des familles : gauche Ange, droite Emile.</div><div class="responsable">Immaculée / Eric / Leslie / Fabrice</div><div class="orga-note">⚙ Gère l'ordre et les places.</div><div class="address-block"><div class="address-text">📍 Église Sanctuaire Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+Rue+de+l%27Eglise+21600+Fenay" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="event" data-start="14:00" data-end="14:30"><div class="time-badge">14h00</div><div class="dot"></div><div class="title">Entrée en procession</div><div class="detail">2 musiques (~2 min). Ordre : prêtres, dames d'honneur, garçons &amp; filles d'honneur, entrée des mariés. Pétales à la sortie.</div><div class="responsable">Immaculée avec Leslie</div></div>
+  <div class="event" data-start="14:30" data-end="16:00"><div class="time-badge">14h30</div><div class="dot"></div><div class="title">Messe</div><div class="detail">Cérémonie religieuse.</div><div class="responsable">Angélique</div><div class="orga-note">⚙ Alliances portées par Alice. Pétales par Honoré et Ituze. La marraine gère la procession des alliances — s'assurer qu'elle a les alliances à l'arrivée.</div></div>
+  <div class="event" data-start="16:00" data-end="16:30"><div class="time-badge">Fin messe</div><div class="dot"></div><div class="title">Annonce de sortie &amp; photos de groupe</div><div class="detail">Photos devant l'église.</div><div class="responsable">MC Norbert</div><div class="orga-note">⚙ Consignes de sortie, photos, heure de rdv à la salle. Prévoir boîte amuse-bouche pour l'organiste.</div></div>
 
   <div class="section-title">Après l'église — Direction salle</div>
-
-  <div class="event" data-start="16:00" data-end="16:30">
-    <div class="time-badge">16h00</div>
-    <div class="dot"></div>
-    <div class="title">Photos de groupe devant l'église</div>
-    <div class="detail">Maximum de photos. Liste des groupes prête à donner par les mariés.</div>
-    <div class="responsable">Photographe / Vivance / Angélique</div>
-  </div>
-
-  <div class="event" data-start="16:30" data-end="17:00">
-    <div class="time-badge">16h30</div>
-    <div class="dot"></div>
-    <div class="title">Départ des mariés avec le photographe</div>
-    <div class="detail">Photos à 1 Allée de la Mairie, Longvic.</div>
-    <div class="responsable">Vicky / Vivance / Angélique</div>
-    <div class="address-block">
-      <div class="address-text">📍 1 Allée de la Mairie, Longvic</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=1+Allee+de+la+Mairie+Longvic&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="event" data-start="16:30" data-end="17:00">
-    <div class="time-badge">16h30</div>
-    <div class="dot"></div>
-    <div class="title">Vérification de la salle</div>
-    <div class="detail">Traiteur, déco, tout en place. Installation du vin d'honneur, vérification arrivée du repas, installation du buffet.</div>
-    <div class="responsable">Immaculée, Fabrice, Eric, Kae, Leslie, Ada, Marcelle, Laïla &amp; Mimi</div>
-    <div class="address-block">
-      <div class="address-text">📍 Salle — 16 rue Lieu dit Préville, 21600 Ouges</div>
-      <div class="nav-links">
-        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">📍 Google Maps</a>
-        <a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
-        <a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">🗺 Plans</a>
-      </div>
-    </div>
-  </div>
+  <div class="event" data-start="16:00" data-end="16:30"><div class="time-badge">16h00</div><div class="dot"></div><div class="title">Photos de groupe devant l'église</div><div class="detail">Maximum de photos. Liste des groupes prête.</div><div class="responsable">Photographe / Vivance / Angélique</div></div>
+  <div class="event" data-start="16:30" data-end="17:00"><div class="time-badge">16h30</div><div class="dot"></div><div class="title">Départ des mariés avec le photographe</div><div class="detail">Photos à 1 Allée de la Mairie, Longvic.</div><div class="responsable">Vicky / Vivance / Angélique</div><div class="address-block"><div class="address-text">📍 1 Allée de la Mairie, Longvic</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=1+Allee+de+la+Mairie+Longvic&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=1+Allee+de+la+Mairie+Longvic" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
+  <div class="event" data-start="16:30" data-end="17:00"><div class="time-badge">16h30</div><div class="dot"></div><div class="title">Vérification de la salle</div><div class="detail">Traiteur, déco, installation vin d'honneur, vérification repas, installation buffet.</div><div class="responsable">Immaculée, Fabrice, Eric, Kae, Leslie, Ada, Marcelle, Laïla &amp; Mimi</div><div class="address-block"><div class="address-text">📍 Salle — 16 rue Lieu dit Préville, 21600 Ouges</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">📍 Google Maps</a><a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank" rel="noopener">🗺 Plans</a></div></div></div>
 
   <div class="section-title">Réception</div>
-
-  <div class="event" data-start="17:00" data-end="17:45">
-    <div class="time-badge">17h00</div>
-    <div class="dot"></div>
-    <div class="title">Vin d'honneur</div>
-    <div class="detail">Mises en bouche servies sur plateaux : samboussas, beignets, roulettes de saucisses, chapatis.</div>
-    <div class="responsable">MC Norbert (annonce), Eric, Ada, Diane &amp; Leslie, Arthur, Moïse, Maurice, Cynthia</div>
-    <div class="orga-note">⚙ Servi par les personnes prévues au service en salle. Plateaux à faire circuler.</div>
-  </div>
-
-  <div class="event" data-start="17:45" data-end="18:00">
-    <div class="time-badge">17h45</div>
-    <div class="dot"></div>
-    <div class="title">Arrivée des mariés</div>
-    <div class="detail">Trinquer, photos de groupe.</div>
-    <div class="responsable">Angélique / Vicky</div>
-    <div class="orga-note">⚙ Prévoir 2-3 photos max pour ne pas déborder sur la suite.</div>
-  </div>
+  <div class="event" data-start="17:00" data-end="17:45"><div class="time-badge">17h00</div><div class="dot"></div><div class="title">Vin d'honneur</div><div class="detail">Mises en bouche sur plateaux : samboussas, beignets, roulettes de saucisses, chapatis.</div><div class="responsable">MC Norbert, Eric, Ada, Diane &amp; Leslie, Arthur, Moïse, Maurice, Cynthia</div><div class="orga-note">⚙ Servi par les personnes prévues. Plateaux à faire circuler.</div></div>
+  <div class="event" data-start="17:45" data-end="18:00"><div class="time-badge">17h45</div><div class="dot"></div><div class="title">Arrivée des mariés</div><div class="detail">Trinquer, photos de groupe.</div><div class="responsable">Angélique / Vicky</div><div class="orga-note">⚙ 2-3 photos max pour ne pas déborder.</div></div>
 
   <div class="section-title">Soirée</div>
-
-  <div class="event" data-start="18:00" data-end="18:15">
-    <div class="time-badge">18h00</div>
-    <div class="dot"></div>
-    <div class="title">Entrée des invités en salle</div>
-    <div class="detail">Placement selon plan de table. Tables d'honneur réservées, libre pour les autres.</div>
-    <div class="responsable">MC Norbert, Eric, Fabrice, Marcelle, Christa</div>
-  </div>
-
-  <div class="event" data-start="18:15" data-end="18:45">
-    <div class="time-badge">18h15</div>
-    <div class="dot"></div>
-    <div class="title">Entrée du cortège &amp; des mariés</div>
-    <div class="detail">Garçons et filles d'honneur sur une danse, suivis des mariés.</div>
-    <div class="responsable">MC Norbert, DJ Eugène</div>
-    <div class="orga-note">⚙ 2 musiques ambiance à donner au DJ la veille.</div>
-  </div>
-
-  <div class="event" data-start="18:45" data-end="19:00">
-    <div class="time-badge">18h45</div>
-    <div class="dot"></div>
-    <div class="title">Mot d'accueil, bénédiction &amp; ouverture</div>
-    <div class="detail">Bénédiction du prêtre. Ouverture de la soirée par le vin/champagne d'accueil servi par les mariés.</div>
-    <div class="responsable">MC Norbert / Eric</div>
-    <div class="orga-note">⚙ Service table d'honneur : préparer le plateau verres et bouteille à ouvrir.</div>
-  </div>
-
-  <div class="event" data-start="19:00" data-end="19:30">
-    <div class="time-badge">19h00</div>
-    <div class="dot"></div>
-    <div class="title">Danses traditionnelles rwandaises (n°1 &amp; n°2)</div>
-    <div class="detail">Échanges entre parents.</div>
-    <div class="responsable">MC Norbert, danseurs, DJ</div>
-    <div class="orga-note">⚙ Gestion des danses et sonorisation.</div>
-  </div>
-
-  <div class="event" data-start="19:30" data-end="20:30">
-    <div class="time-badge">19h30</div>
-    <div class="dot"></div>
-    <div class="title">Repas</div>
-    <div class="detail">Les mariés sont servis à table par les demoiselles d'honneur ou le service d'honneur.</div>
-    <div class="responsable">MC Norbert</div>
-    <div class="orga-note">⚙ MC communique l'ordre de passage et s'assure du respect du passage suivant disposition de la salle : 1 ou 2 buffets.</div>
-  </div>
-
-  <div class="event" data-start="20:30" data-end="21:00">
-    <div class="time-badge">20h30</div>
-    <div class="dot"></div>
-    <div class="title">Danses traditionnelles (n°3 &amp; n°4)</div>
-    <div class="detail">1ère danse du groupe seul. 2ème danse : invitation des mariés et familles.</div>
-    <div class="responsable">MC Norbert, DJ, danseurs</div>
-  </div>
-
-  <div class="event" data-start="21:00" data-end="22:00">
-    <div class="time-badge">21h00</div>
-    <div class="dot"></div>
-    <div class="title">Toasts des invités d'honneur &amp; remise des cadeaux</div>
-    <div class="detail">Discours et remise des cadeaux.</div>
-    <div class="responsable">MC Norbert</div>
-    <div class="orga-note">⚙ MC gère l'ordre. Personne de confiance pour les cadeaux/enveloppes : François (Lyon).</div>
-  </div>
-
-  <div class="event" data-start="22:00" data-end="22:30">
-    <div class="time-badge">22h00</div>
-    <div class="dot"></div>
-    <div class="title">Gâteau, coupe &amp; crémant de Bourgogne</div>
-    <div class="detail">Entrée du gâteau sur musique DJ. Mariés servent les tables familles. Service aux invités sur petites assiettes.</div>
-    <div class="responsable">MC Norbert, DJ, Marie Aimée</div>
-  </div>
-
-  <div class="event" data-start="22:30" data-end="23:00">
-    <div class="time-badge">22h30</div>
-    <div class="dot"></div>
-    <div class="title">Échanges entre familles &amp; remerciements</div>
-    <div class="detail">Les mariés prennent la parole pour remercier les invités.</div>
-    <div class="responsable">MC Norbert, Eric / Emile &amp; Ange</div>
-    <div class="orga-note">⚙ Préparation des boissons à remettre à la famille de la mariée.</div>
-  </div>
-
-  <div class="event" data-start="23:00" data-end="00:00">
-    <div class="time-badge">23h00</div>
-    <div class="dot"></div>
-    <div class="title">Départ famille &amp; changement de tenue</div>
-    <div class="detail">Départ d'une partie de la famille. Les mariés se changent.</div>
-  </div>
-
-  <div class="event" data-start="00:00" data-end="04:00">
-    <div class="time-badge">00h00</div>
-    <div class="dot"></div>
-    <div class="title">Ouverture du bal — « Titanium »</div>
-    <div class="detail">Soirée dansante jusqu'à 4h.</div>
-    <div class="responsable">DJ</div>
-  </div>
-
-  <div class="event" data-start="04:00" data-end="04:01">
-    <div class="time-badge">04h00</div>
-    <div class="dot"></div>
-    <div class="title">Fin de soirée &amp; fermeture</div>
-    <div class="responsable">Mariés / Chef de stock</div>
-  </div>
-
+  <div class="event" data-start="18:00" data-end="18:15"><div class="time-badge">18h00</div><div class="dot"></div><div class="title">Entrée des invités en salle</div><div class="detail">Placement selon plan de table. Tables d'honneur réservées, libre pour les autres.</div><div class="responsable">MC Norbert, Eric, Fabrice, Marcelle, Christa</div></div>
+  <div class="event" data-start="18:15" data-end="18:45"><div class="time-badge">18h15</div><div class="dot"></div><div class="title">Entrée du cortège &amp; des mariés</div><div class="detail">Garçons et filles d'honneur sur une danse, suivis des mariés.</div><div class="responsable">MC Norbert, DJ Eugène</div><div class="orga-note">⚙ 2 musiques ambiance à donner au DJ la veille.</div></div>
+  <div class="event" data-start="18:45" data-end="19:00"><div class="time-badge">18h45</div><div class="dot"></div><div class="title">Mot d'accueil, bénédiction &amp; ouverture</div><div class="detail">Bénédiction du prêtre. Vin/champagne d'accueil servi par les mariés.</div><div class="responsable">MC Norbert / Eric</div><div class="orga-note">⚙ Préparer plateau verres et bouteille pour table d'honneur.</div></div>
+  <div class="event" data-start="19:00" data-end="19:30"><div class="time-badge">19h00</div><div class="dot"></div><div class="title">Danses traditionnelles rwandaises (n°1 &amp; n°2)</div><div class="detail">Échanges entre parents.</div><div class="responsable">MC Norbert, danseurs, DJ</div></div>
+  <div class="event" data-start="19:30" data-end="20:30"><div class="time-badge">19h30</div><div class="dot"></div><div class="title">Repas</div><div class="detail">Mariés servis à table par les demoiselles d'honneur.</div><div class="responsable">MC Norbert</div><div class="orga-note">⚙ MC communique l'ordre de passage — 1 ou 2 buffets selon disposition.</div></div>
+  <div class="event" data-start="20:30" data-end="21:00"><div class="time-badge">20h30</div><div class="dot"></div><div class="title">Danses traditionnelles (n°3 &amp; n°4)</div><div class="detail">1ère danse groupe seul. 2ème : invitation mariés et familles.</div><div class="responsable">MC Norbert, DJ, danseurs</div></div>
+  <div class="event" data-start="21:00" data-end="22:00"><div class="time-badge">21h00</div><div class="dot"></div><div class="title">Toasts des invités d'honneur &amp; remise des cadeaux</div><div class="responsable">MC Norbert</div><div class="orga-note">⚙ MC gère l'ordre. Personne de confiance cadeaux/enveloppes : François (Lyon).</div></div>
+  <div class="event" data-start="22:00" data-end="22:30"><div class="time-badge">22h00</div><div class="dot"></div><div class="title">Gâteau, coupe &amp; crémant de Bourgogne</div><div class="detail">Entrée gâteau sur musique. Mariés servent tables familles, service invités sur petites assiettes.</div><div class="responsable">MC Norbert, DJ, Marie Aimée</div></div>
+  <div class="event" data-start="22:30" data-end="23:00"><div class="time-badge">22h30</div><div class="dot"></div><div class="title">Échanges entre familles &amp; remerciements</div><div class="detail">Les mariés prennent la parole.</div><div class="responsable">MC Norbert, Eric / Emile &amp; Ange</div><div class="orga-note">⚙ Préparation des boissons à remettre à la famille de la mariée.</div></div>
+  <div class="event" data-start="23:00" data-end="00:00"><div class="time-badge">23h00</div><div class="dot"></div><div class="title">Départ famille &amp; changement de tenue</div></div>
+  <div class="event" data-start="00:00" data-end="04:00"><div class="time-badge">00h00</div><div class="dot"></div><div class="title">Ouverture du bal — « Titanium »</div><div class="detail">Soirée dansante jusqu'à 4h.</div><div class="responsable">DJ</div></div>
+  <div class="event" data-start="04:00" data-end="04:01"><div class="time-badge">04h00</div><div class="dot"></div><div class="title">Fin de soirée &amp; fermeture</div><div class="responsable">Mariés / Chef de stock</div></div>
 </div>
 
-<div class="footer">
-  <h2>Emile & Ange</h2>
-  <p>11 · 04 · 2026 — Version coordination</p>
-</div>
+<div class="footer"><h2>Emile & Ange</h2><p>11 · 04 · 2026 — Version coordination</p></div>
 
 <script>
-var WEDDING_DATE = new Date('2026-04-11T00:00:00+02:00');
-function parseTime(str) {
-  var p = str.split(':'); var h = +p[0]; var m = +p[1];
-  var d = new Date(WEDDING_DATE);
-  if (h < 6) d.setDate(d.getDate() + 1);
-  d.setHours(h, m, 0, 0); return d;
+var WD = new Date('2026-04-11T00:00:00+02:00');
+function pt(s){var p=s.split(':'),h=+p[0],m=+p[1],d=new Date(WD);if(h<6)d.setDate(d.getDate()+1);d.setHours(h,m,0,0);return d}
+
+function getDelay(){try{return JSON.parse(localStorage.getItem('wedding_delay'))||null}catch(e){return null}}
+function setDelayLS(min){localStorage.setItem('wedding_delay',JSON.stringify({minutes:min,ts:Date.now()}))}
+
+function toggleDelay(){
+  document.getElementById('delayMin').style.display='inline-block';
+  document.getElementById('btnConfirm').style.display='inline-block';
+  document.getElementById('btnReset').style.display='inline-block';
+  document.getElementById('delayMin').focus();
 }
-function update() {
-  var now = new Date();
-  var events = document.querySelectorAll('.event');
-  var bar = document.getElementById('statusBar');
-  var wStart = parseTime('12:00'), wEnd = parseTime('04:01');
-  if (now < wStart) {
-    var diff = wStart - now;
-    var days = Math.floor(diff / 86400000);
-    var hrs = Math.floor((diff % 86400000) / 3600000);
-    var mins = Math.floor((diff % 3600000) / 60000);
-    bar.innerHTML = days > 0 ? 'J-' + days + ' \u00b7 ' + hrs + 'h ' + mins + 'min' : 'Dans ' + hrs + 'h ' + mins + 'min';
-    events.forEach(function(e) { e.classList.remove('past','active'); e.classList.add('upcoming'); });
-    return;
-  }
-  if (now > wEnd) {
-    bar.innerHTML = '\u2726 Merci d\u2019avoir c\u00e9l\u00e9br\u00e9 avec nous \u2726';
-    events.forEach(function(e) { e.classList.remove('upcoming','active'); e.classList.add('past'); });
-    return;
-  }
-  var found = false;
-  events.forEach(function(ev) {
-    var s = parseTime(ev.dataset.start), e = parseTime(ev.dataset.end);
-    ev.classList.remove('past','active','upcoming');
-    if (now >= e) ev.classList.add('past');
-    else if (now >= s && now < e) {
-      ev.classList.add('active');
-      if (!found) { bar.innerHTML = '<span class="live-dot"></span>EN COURS \u2014 ' + ev.querySelector('.title').textContent; found = true; }
-    } else ev.classList.add('upcoming');
-  });
-  if (found && !window._sc) {
-    window._sc = true;
-    setTimeout(function() { var el = document.querySelector('.event.active'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 500);
-  }
+function confirmDelay(){
+  var v=parseInt(document.getElementById('delayMin').value)||0;
+  setDelayLS(v);updateDelayUI();
+  document.getElementById('delayMin').style.display='none';
+  document.getElementById('btnConfirm').style.display='none';
 }
-update(); setInterval(update, 30000);
+function resetDelay(){
+  localStorage.removeItem('wedding_delay');updateDelayUI();
+  document.getElementById('delayMin').value='';
+  document.getElementById('delayMin').style.display='none';
+  document.getElementById('btnConfirm').style.display='none';
+  document.getElementById('btnReset').style.display='none';
+  document.getElementById('btnDelay').classList.remove('active');
+  document.getElementById('btnDelay').textContent='\u26A0 Signaler';
+}
+function updateDelayUI(){
+  var d=getDelay(),b=document.getElementById('delayBanner'),r=document.getElementById('btnReset');
+  if(d){
+    b.textContent=d.minutes>0?'\u26A0 Retard signal\u00e9 : environ '+d.minutes+' min sur le programme':'\u26A0 Retard signal\u00e9 sur le programme';
+    b.classList.add('visible');r.style.display='inline-block';
+    document.getElementById('btnDelay').classList.add('active');
+    document.getElementById('btnDelay').textContent='\u26A0 Retard signal\u00e9';
+  }else{b.classList.remove('visible');r.style.display='none'}
+}
+
+function updateProgress(){
+  var now=new Date(),s=pt('12:00'),e=pt('04:01'),f=document.getElementById('progressFill'),d=document.getElementById('progressDot');
+  if(now<s){f.style.height='0%';d.style.top='0%';return}
+  if(now>e){f.style.height='100%';d.style.top='calc(100% - 12px)';return}
+  var pct=Math.min(100,Math.max(0,((now-s)/(e-s))*100));
+  f.style.height=pct+'%';d.style.top='calc('+pct+'% - 6px)';
+}
+
+function update(){
+  var now=new Date(),evts=document.querySelectorAll('.event'),bar=document.getElementById('statusBar');
+  var ws=pt('12:00'),we=pt('04:01');
+  if(now<ws){var df=ws-now,dy=Math.floor(df/864e5),hr=Math.floor(df%864e5/36e5),mn=Math.floor(df%36e5/6e4);bar.innerHTML=dy>0?'J-'+dy+' \u00b7 '+hr+'h '+mn+'min':'Dans '+hr+'h '+mn+'min';evts.forEach(function(e){e.classList.remove('past','active');e.classList.add('upcoming')});updateProgress();return}
+  if(now>we){bar.innerHTML='\u2726 Merci d\u2019avoir c\u00e9l\u00e9br\u00e9 avec nous \u2726';evts.forEach(function(e){e.classList.remove('upcoming','active');e.classList.add('past')});updateProgress();return}
+  var found=false;
+  evts.forEach(function(ev){var s=pt(ev.dataset.start),e=pt(ev.dataset.end);ev.classList.remove('past','active','upcoming');if(now>=e)ev.classList.add('past');else if(now>=s&&now<e){ev.classList.add('active');if(!found){bar.innerHTML='<span class="live-dot"></span>EN COURS \u2014 '+ev.querySelector('.title').textContent;found=true}}else ev.classList.add('upcoming')});
+  if(found&&!window._sc){window._sc=true;setTimeout(function(){var el=document.querySelector('.event.active');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},500)}
+  updateProgress();
+}
+updateDelayUI();update();setInterval(update,15000);
 </script>
 </body>
 </html>
