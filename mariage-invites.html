@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emile & Ange — 11 Avril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #1B5E3B;
+  --burgundy: #6B1D3A;
+  --gold: #C9A84C;
+  --gold-light: #E0C97A;
+  --white: #FAFAF7;
+  --cream: #F5F0E8;
+  --text: #2C2420;
+  --text-light: #6B6560;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, var(--green) 0%, #163D2B 40%, var(--burgundy) 100%);
+  overflow: hidden; padding: 2rem;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(201,168,76,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.1) 0%, transparent 50%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400; color: var(--white);
+  letter-spacing: 0.05em; line-height: 1.1;
+}
+.hero .ampersand { display: block; font-size: 0.5em; color: var(--gold); margin: 0.2em 0; font-style: italic; }
+.hero .date { margin-top: 1.5rem; font-size: 1rem; font-weight: 300; color: var(--gold-light); letter-spacing: 0.3em; text-transform: uppercase; }
+.hero .lieu { margin-top: 0.8rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); font-weight: 300; max-width: 400px; }
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: var(--gold); opacity: 0.6; animation: bounce 2s infinite;
+  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 1;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.countdown-bar {
+  background: var(--green); color: var(--white);
+  padding: 1rem 2rem; text-align: center;
+  font-size: 0.85rem; font-weight: 400; letter-spacing: 0.1em;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.countdown-bar .live-dot {
+  display: inline-block; width: 8px; height: 8px;
+  background: #e74c3c; border-radius: 50%;
+  margin-right: 8px; animation: pulse-dot 1.5s infinite; vertical-align: middle;
+}
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.timeline-section { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 600; text-align: center;
+  margin: 3rem 0 2rem; color: var(--green);
+}
+.section-title:first-child { margin-top: 1rem; }
+.section-title::after {
+  content: ''; display: block; width: 40px; height: 2px;
+  background: var(--gold); margin: 0.5rem auto 0;
+}
+
+.event {
+  position: relative;
+  padding: 1.4rem 1.4rem 1.4rem 5.5rem;
+  margin-bottom: 0.5rem; border-radius: 12px;
+  transition: all 0.4s ease; border-left: 3px solid transparent;
+}
+.event::before {
+  content: ''; position: absolute; left: 3.1rem; top: 0; bottom: 0;
+  width: 1px; background: rgba(107,29,58,0.15);
+}
+.event:last-child::before { display: none; }
+.event .time-badge {
+  position: absolute; left: 0; top: 1.4rem; width: 2.6rem;
+  text-align: center; font-size: 0.72rem; font-weight: 600;
+  color: var(--burgundy); line-height: 1.3;
+}
+.event .dot {
+  position: absolute; left: 2.85rem; top: 1.7rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cream); border: 2px solid var(--burgundy);
+  z-index: 1; transition: all 0.3s ease;
+}
+.event .title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.3rem; line-height: 1.3; }
+.event .detail { font-size: 0.88rem; color: var(--text); font-weight: 400; line-height: 1.6; opacity: 0.75; }
+
+.address-block {
+  margin-top: 0.7rem; padding: 0.75rem 1rem;
+  background: rgba(27,94,59,0.06); border-radius: 8px;
+  border: 1px solid rgba(27,94,59,0.12);
+}
+.address-text { font-size: 0.84rem; font-weight: 500; color: var(--green); margin-bottom: 0.5rem; line-height: 1.4; }
+.nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.nav-links a {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.45rem 0.9rem; border-radius: 6px;
+  font-size: 0.78rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease;
+}
+.nav-links a.gmaps { background: #E8F5E9; color: #1B7A3D; }
+.nav-links a.gmaps:hover { background: #C8E6C9; }
+.nav-links a.waze { background: #E3F2FD; color: #1565C0; }
+.nav-links a.waze:hover { background: #BBDEFB; }
+.nav-links a.apple { background: #F3E5F5; color: #7B1FA2; }
+.nav-links a.apple:hover { background: #E1BEE7; }
+
+.event.past { opacity: 0.4; }
+.event.past .dot { background: var(--burgundy); border-color: var(--burgundy); }
+.event.active {
+  background: linear-gradient(135deg, rgba(27,94,59,0.07), rgba(201,168,76,0.07));
+  border-left-color: var(--green); box-shadow: 0 2px 12px rgba(27,94,59,0.08);
+}
+.event.active .dot {
+  background: var(--green); border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(27,94,59,0.2); animation: pulse-dot 1.5s infinite;
+}
+.event.active .title { color: var(--green); }
+.event.active .time-badge { color: var(--green); font-weight: 700; }
+.event.active .detail { opacity: 1; }
+.event.upcoming .dot { background: var(--cream); border-color: var(--gold); }
+
+.footer {
+  text-align: center; padding: 3rem 1.5rem;
+  background: linear-gradient(160deg, var(--green), var(--burgundy)); color: var(--white);
+}
+.footer h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; }
+.footer p { font-size: 0.8rem; color: var(--gold-light); font-weight: 300; }
+
+@media (max-width: 480px) {
+  .event { padding-left: 4.5rem; padding-right: 1rem; }
+  .event .time-badge { width: 2.2rem; font-size: 0.68rem; }
+  .event::before { left: 2.7rem; }
+  .event .dot { left: 2.45rem; }
+  .nav-links { flex-direction: column; }
+  .nav-links a { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Emile <span class="ampersand">&</span> Ange</h1>
+    <div class="date">Samedi 11 Avril 2026</div>
+    <div class="lieu">Fénay, Bourgogne</div>
+  </div>
+  <div class="scroll-hint">↓ Programme</div>
+</div>
+
+<div class="countdown-bar" id="statusBar">Chargement…</div>
+
+<div class="timeline-section">
+
+  <div class="section-title">Cérémonie</div>
+
+  <div class="event" data-start="13:15" data-end="14:00">
+    <div class="time-badge">13h15</div>
+    <div class="dot"></div>
+    <div class="title">Accueil à l'église</div>
+    <div class="detail">Accueil des invités et placement.</div>
+    <div class="address-block">
+      <div class="address-text">📍 Église Sanctuaire Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div>
+      <div class="nav-links">
+        <a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+Rue+de+l%27Eglise+21600+Fenay" target="_blank" rel="noopener">📍 Google Maps</a>
+        <a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank" rel="noopener">🚗 Waze</a>
+        <a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank" rel="noopener">🗺 Plans</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="event" data-start="14:00" data-end="14:30">
+    <div class="time-badge">14h00</div>
+    <div class="dot"></div>
+    <div class="title">Entrée en procession</div>
+  </div>
+
+  <div class="event" data-start="14:30" data-end="16:00">
+    <div class="time-badge">14h30</div>
+    <div class="dot"></div>
+    <div class="title">Messe</div>
+    <div class="detail">Cérémonie religieuse.</div>
+  </div>
+
+  <div class="event" data-start="16:00" data-end="16:30">
+    <div class="time-badge">16h00</div>
+    <div class="dot"></div>
+    <div class="title">Photos de groupe</div>
+    <div class="detail">Devant l'église.</div>
+  </div>
+
+  <div class="section-title">Réception</div>
+
+  <div class="event" data-start="17:00" data-end="17:45">
+    <div class="time-badge">17h00</div>
+    <div class="dot"></div>
+    <div class="title">Vin d'honneur</div>
+    <div class="detail">Cocktail et buffet.</div>
+  </div>
+
+  <div class="event" data-start="17:45" data-end="18:00">
+    <div class="time-badge">17h45</div>
+    <div class="dot"></div>
+    <div class="title">Arrivée des mariés</div>
+    <div class="detail">Toasts et photos.</div>
+  </div>
+
+  <div class="section-title">Soirée</div>
+
+  <div class="event" data-start="18:00" data-end="18:15">
+    <div class="time-badge">18h00</div>
+    <div class="dot"></div>
+    <div class="title">Entrée en salle</div>
+    <div class="detail">Placement selon le plan de table.</div>
+  </div>
+
+  <div class="event" data-start="18:15" data-end="18:45">
+    <div class="time-badge">18h15</div>
+    <div class="dot"></div>
+    <div class="title">Entrée du cortège &amp; des mariés</div>
+  </div>
+
+  <div class="event" data-start="18:45" data-end="19:00">
+    <div class="time-badge">18h45</div>
+    <div class="dot"></div>
+    <div class="title">Mot d'accueil &amp; bénédiction</div>
+    <div class="detail">Ouverture officielle de la soirée.</div>
+  </div>
+
+  <div class="event" data-start="19:00" data-end="19:30">
+    <div class="time-badge">19h00</div>
+    <div class="dot"></div>
+    <div class="title">Danses traditionnelles rwandaises</div>
+    <div class="detail">Échanges entre parents.</div>
+  </div>
+
+  <div class="event" data-start="19:30" data-end="20:30">
+    <div class="time-badge">19h30</div>
+    <div class="dot"></div>
+    <div class="title">Repas</div>
+  </div>
+
+  <div class="event" data-start="20:30" data-end="21:00">
+    <div class="time-badge">20h30</div>
+    <div class="dot"></div>
+    <div class="title">Suite des danses traditionnelles</div>
+  </div>
+
+  <div class="event" data-start="21:00" data-end="22:00">
+    <div class="time-badge">21h00</div>
+    <div class="dot"></div>
+    <div class="title">Toasts &amp; remise des cadeaux</div>
+    <div class="detail">Discours des invités d'honneur.</div>
+  </div>
+
+  <div class="event" data-start="22:00" data-end="22:30">
+    <div class="time-badge">22h00</div>
+    <div class="dot"></div>
+    <div class="title">Gâteau &amp; crémant</div>
+  </div>
+
+  <div class="event" data-start="22:30" data-end="23:00">
+    <div class="time-badge">22h30</div>
+    <div class="dot"></div>
+    <div class="title">Remerciements des mariés</div>
+  </div>
+
+  <div class="event" data-start="00:00" data-end="04:00">
+    <div class="time-badge">00h00</div>
+    <div class="dot"></div>
+    <div class="title">Ouverture du bal</div>
+    <div class="detail">Place à la danse !</div>
+  </div>
+
+  <div class="event" data-start="04:00" data-end="04:01">
+    <div class="time-badge">04h00</div>
+    <div class="dot"></div>
+    <div class="title">Fin de soirée</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <h2>Emile & Ange</h2>
+  <p>11 · 04 · 2026</p>
+</div>
+
+<script>
+var WEDDING_DATE = new Date('2026-04-11T00:00:00+02:00');
+function parseTime(str) {
+  var p = str.split(':'); var h = +p[0]; var m = +p[1];
+  var d = new Date(WEDDING_DATE);
+  if (h < 6) d.setDate(d.getDate() + 1);
+  d.setHours(h, m, 0, 0); return d;
+}
+function update() {
+  var now = new Date();
+  var events = document.querySelectorAll('.event');
+  var bar = document.getElementById('statusBar');
+  var wStart = parseTime('13:15'), wEnd = parseTime('04:01');
+  if (now < wStart) {
+    var diff = wStart - now;
+    var days = Math.floor(diff / 86400000);
+    var hrs = Math.floor((diff % 86400000) / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    bar.innerHTML = days > 0 ? 'J-' + days + ' · ' + hrs + 'h ' + mins + 'min' : 'Dans ' + hrs + 'h ' + mins + 'min';
+    events.forEach(function(e) { e.classList.remove('past','active'); e.classList.add('upcoming'); });
+    return;
+  }
+  if (now > wEnd) {
+    bar.innerHTML = '✦ Merci d\'avoir célébré avec nous ✦';
+    events.forEach(function(e) { e.classList.remove('upcoming','active'); e.classList.add('past'); });
+    return;
+  }
+  var found = false;
+  events.forEach(function(ev) {
+    var s = parseTime(ev.dataset.start), e = parseTime(ev.dataset.end);
+    ev.classList.remove('past','active','upcoming');
+    if (now >= e) ev.classList.add('past');
+    else if (now >= s && now < e) {
+      ev.classList.add('active');
+      if (!found) { bar.innerHTML = '<span class="live-dot"></span>EN COURS — ' + ev.querySelector('.title').textContent; found = true; }
+    } else ev.classList.add('upcoming');
+  });
+  if (found && !window._sc) {
+    window._sc = true;
+    setTimeout(function() { var el = document.querySelector('.event.active'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 500);
+  }
+}
+update(); setInterval(update, 30000);
+</script>
+</body>
+</html>
