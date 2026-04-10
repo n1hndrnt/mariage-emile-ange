@@ -9,7 +9,6 @@
 :root{--green:#1B5E3B;--burgundy:#6B1D3A;--gold:#C9A84C;--gold-light:#E0C97A;--white:#FAFAF7;--cream:#F5F0E8;--text:#2C2420;--text-light:#6B6560}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
-
 .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,var(--green) 0%,#163D2B 40%,var(--burgundy) 100%);overflow:hidden;padding:2rem}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(201,168,76,.1) 0%,transparent 50%)}
 .hero-content{position:relative;z-index:1}
@@ -19,24 +18,19 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
 .hero .lieu{margin-top:.8rem;font-size:.85rem;color:rgba(255,255,255,.6);font-weight:300;max-width:400px}
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gold);opacity:.6;animation:bounce 2s infinite;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;z-index:1}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-
 .countdown-bar{background:var(--green);color:var(--white);padding:1rem 2rem;text-align:center;font-size:.85rem;font-weight:400;letter-spacing:.1em;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.15)}
 .countdown-bar .live-dot{display:inline-block;width:8px;height:8px;background:#e74c3c;border-radius:50%;margin-right:8px;animation:pulse-dot 1.5s infinite;vertical-align:middle}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
-
-.delay-banner{background:#f39c12;color:#2C2420;padding:.6rem 1rem;text-align:center;font-size:.82rem;font-weight:600;display:none;animation:slideDown .3s ease}
+.delay-banner{background:#f39c12;color:#2C2420;padding:.6rem 1rem;text-align:center;font-size:.82rem;font-weight:600;display:none;animation:slideD .3s ease}
 .delay-banner.visible{display:block}
-@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
-
+@keyframes slideD{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
 .progress-track{position:fixed;left:0;top:0;bottom:0;width:4px;background:rgba(27,94,59,.1);z-index:50}
-.progress-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(180deg,var(--green),var(--gold));transition:height .8s ease;border-radius:0 0 2px 2px}
-.progress-dot{position:absolute;left:-4px;width:12px;height:12px;background:var(--green);border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 8px rgba(27,94,59,.4);transition:top .8s ease}
-
+.progress-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(180deg,var(--green),var(--gold));transition:height .5s linear;border-radius:0 0 2px 2px}
+.progress-dot{position:absolute;left:-4px;width:12px;height:12px;background:var(--green);border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 8px rgba(27,94,59,.4);transition:top .5s linear}
 .timeline-section{max-width:720px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;text-align:center;margin:3rem 0 2rem;color:var(--green)}
 .section-title:first-child{margin-top:1rem}
 .section-title::after{content:'';display:block;width:40px;height:2px;background:var(--gold);margin:.5rem auto 0}
-
 .event{position:relative;padding:1.4rem 1.4rem 1.4rem 5.5rem;margin-bottom:.5rem;border-radius:12px;transition:all .4s ease;border-left:3px solid transparent}
 .event::before{content:'';position:absolute;left:3.1rem;top:0;bottom:0;width:1px;background:rgba(107,29,58,.15)}
 .event:last-child::before{display:none}
@@ -44,23 +38,19 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
 .event .dot{position:absolute;left:2.85rem;top:1.7rem;width:10px;height:10px;border-radius:50%;background:var(--cream);border:2px solid var(--burgundy);z-index:1;transition:all .3s ease}
 .event .title{font-weight:600;font-size:1.05rem;margin-bottom:.3rem;line-height:1.3}
 .event .detail{font-size:.88rem;color:var(--text);font-weight:400;line-height:1.6;opacity:.75}
-
 .address-block{margin-top:.7rem;padding:.75rem 1rem;background:rgba(27,94,59,.06);border-radius:8px;border:1px solid rgba(27,94,59,.12)}
 .address-text{font-size:.84rem;font-weight:500;color:var(--green);margin-bottom:.5rem;line-height:1.4}
 .nav-links{display:flex;gap:.5rem;flex-wrap:wrap}
 .nav-links a{display:inline-flex;align-items:center;gap:.3rem;padding:.45rem .9rem;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;transition:all .2s ease}
 .nav-links a.gmaps{background:#E8F5E9;color:#1B7A3D}.nav-links a.waze{background:#E3F2FD;color:#1565C0}.nav-links a.apple{background:#F3E5F5;color:#7B1FA2}
-
 .event.past{opacity:.4}.event.past .dot{background:var(--burgundy);border-color:var(--burgundy)}
 .event.active{background:linear-gradient(135deg,rgba(27,94,59,.07),rgba(201,168,76,.07));border-left-color:var(--green);box-shadow:0 2px 12px rgba(27,94,59,.08)}
 .event.active .dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 4px rgba(27,94,59,.2);animation:pulse-dot 1.5s infinite}
 .event.active .title{color:var(--green)}.event.active .time-badge{color:var(--green);font-weight:700}.event.active .detail{opacity:1}
 .event.upcoming .dot{background:var(--cream);border-color:var(--gold)}
-
 .footer{text-align:center;padding:3rem 1.5rem;background:linear-gradient(160deg,var(--green),var(--burgundy));color:var(--white)}
 .footer h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;margin-bottom:.5rem}
 .footer p{font-size:.8rem;color:var(--gold-light);font-weight:300}
-
 @media(max-width:480px){
 .event{padding-left:4.5rem;padding-right:1rem}.event .time-badge{width:2.2rem;font-size:.68rem}.event::before{left:2.7rem}.event .dot{left:2.45rem}
 .nav-links{flex-direction:column}.nav-links a{justify-content:center}
@@ -69,18 +59,8 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
 </style>
 </head>
 <body>
-
 <div class="progress-track"><div class="progress-fill" id="progressFill"></div><div class="progress-dot" id="progressDot"></div></div>
-
-<div class="hero">
-  <div class="hero-content">
-    <h1>Emile <span class="ampersand">&</span> Ange</h1>
-    <div class="date">Samedi 11 Avril 2026</div>
-    <div class="lieu">Fénay — Ouges, Bourgogne</div>
-  </div>
-  <div class="scroll-hint">↓ Programme</div>
-</div>
-
+<div class="hero"><div class="hero-content"><h1>Emile <span class="ampersand">&</span> Ange</h1><div class="date">Samedi 11 Avril 2026</div><div class="lieu">Fénay — Ouges, Bourgogne</div></div><div class="scroll-hint">↓ Programme</div></div>
 <div class="countdown-bar" id="statusBar">Chargement…</div>
 <div class="delay-banner" id="delayBanner"></div>
 
@@ -92,13 +72,13 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
   <div class="event" data-start="16:00" data-end="16:30" data-id="e5"><div class="time-badge">16h00</div><div class="dot"></div><div class="title">Photos de groupe</div><div class="detail">Devant l'église.</div></div>
 
   <div class="section-title">Réception</div>
-  <div class="event" data-start="17:00" data-end="17:45" data-id="e9"><div class="time-badge">17h00</div><div class="dot"></div><div class="title">Vin d'honneur</div><div class="detail">Cocktail : samboussas, beignets, chapatis et mises en bouche.</div><div class="address-block"><div class="address-text">📍 Salle de réception — 16 rue Lieu dit Préville, 21600 Ouges</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank">🗺 Plans</a></div></div></div>
+  <div class="event" data-start="17:00" data-end="17:45" data-id="e9"><div class="time-badge">17h00</div><div class="dot"></div><div class="title">Vin d'honneur</div><div class="detail">Cocktail : samboussas, beignets, chapatis.</div><div class="address-block"><div class="address-text">📍 Salle de réception — 16 rue Lieu dit Préville, 21600 Ouges</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=16+rue+Preville+Ouges&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=16+rue+Lieu+dit+Preville+21600+Ouges" target="_blank">🗺 Plans</a></div></div></div>
   <div class="event" data-start="17:45" data-end="18:00" data-id="e10"><div class="time-badge">17h45</div><div class="dot"></div><div class="title">Arrivée des mariés</div><div class="detail">Toasts et photos.</div></div>
 
   <div class="section-title">Soirée</div>
   <div class="event" data-start="18:00" data-end="18:15" data-id="e11"><div class="time-badge">18h00</div><div class="dot"></div><div class="title">Entrée en salle</div><div class="detail">Placement selon le plan de table.</div></div>
   <div class="event" data-start="18:15" data-end="18:45" data-id="e12"><div class="time-badge">18h15</div><div class="dot"></div><div class="title">Entrée du cortège &amp; des mariés</div></div>
-  <div class="event" data-start="18:45" data-end="19:00" data-id="e13"><div class="time-badge">18h45</div><div class="dot"></div><div class="title">Mot d'accueil &amp; bénédiction</div><div class="detail">Ouverture officielle de la soirée.</div></div>
+  <div class="event" data-start="18:45" data-end="19:00" data-id="e13"><div class="time-badge">18h45</div><div class="dot"></div><div class="title">Mot d'accueil &amp; bénédiction</div><div class="detail">Ouverture de la soirée.</div></div>
   <div class="event" data-start="19:00" data-end="19:30" data-id="e14"><div class="time-badge">19h00</div><div class="dot"></div><div class="title">Danses traditionnelles rwandaises</div><div class="detail">Échanges entre parents.</div></div>
   <div class="event" data-start="19:30" data-end="20:30" data-id="e15"><div class="time-badge">19h30</div><div class="dot"></div><div class="title">Repas</div></div>
   <div class="event" data-start="20:30" data-end="21:00" data-id="e16"><div class="time-badge">20h30</div><div class="dot"></div><div class="title">Suite des danses traditionnelles</div></div>
@@ -108,55 +88,83 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
   <div class="event" data-start="00:00" data-end="04:00" data-id="e21"><div class="time-badge">00h00</div><div class="dot"></div><div class="title">Ouverture du bal</div><div class="detail">Place à la danse !</div></div>
   <div class="event" data-start="04:00" data-end="04:01" data-id="e22"><div class="time-badge">04h00</div><div class="dot"></div><div class="title">Fin de soirée</div></div>
 </div>
-
 <div class="footer"><h2>Emile & Ange</h2><p>11 · 04 · 2026</p></div>
 
 <script>
-// ╔══════════════════════════════════════════════════════════╗
-// ║  REMPLACER L'URL CI-DESSOUS PAR VOTRE URL FIREBASE      ║
-// ╚══════════════════════════════════════════════════════════╝
-var FIREBASE_URL = 'https://mariage-emile-ange-default-rtdb.europe-west1.firebasedatabase.app';
-
+var FIREBASE_URL='https://mariage-emile-ange-default-rtdb.europe-west1.firebasedatabase.app';
 var WD=new Date('2026-04-11T00:00:00+02:00');
 function pt(s){var p=s.split(':'),h=+p[0],m=+p[1],d=new Date(WD);if(h<6)d.setDate(d.getDate()+1);d.setHours(h,m,0,0);return d}
 function fmt(s){var p=s.split(':');return parseInt(p[0])+'h'+p[1]}
 
 // ── FIREBASE READ ──
-function fetchFromFirebase(){
-  fetch(FIREBASE_URL+'/wedding.json')
-  .then(function(r){return r.json()})
-  .then(function(data){
-    if(!data)return;
 
-    // Delay
+function fmt(s){var p=s.split(':');return parseInt(p[0])+'h'+p[1]}
+
+// Track known events for add/remove
+var knownIds = {};
+document.querySelectorAll('.event[data-id]').forEach(function(ev){ knownIds[ev.dataset.id] = true; });
+
+function applyFirebaseEdits(edits){
+  if(!edits) return;
+  // Update existing + detect new
+  Object.keys(edits).forEach(function(id){
+    var d = edits[id];
+    var ev = document.querySelector('.event[data-id="'+id+'"]');
+    if(ev){
+      if(d.start){ ev.dataset.start = d.start; ev.querySelector('.time-badge').textContent = fmt(d.start); }
+      if(d.title){ var t=ev.querySelector('.title'); if(t) t.textContent = d.title; }
+      if(d.detail){ var dt=ev.querySelector('.detail'); if(dt) dt.textContent = d.detail; }
+    } else if(id.indexOf('enew')===0 && !knownIds[id] && d.title !== 'Nouvelle étape'){
+      // New event from coordination - create it
+      var div = document.createElement('div');
+      div.className = 'event upcoming';
+      div.dataset.id = id;
+      div.dataset.start = d.start || '19:00';
+      div.dataset.end = d.start ? addMin30(d.start) : '19:30';
+      div.innerHTML = '<div class="time-badge">' + fmt(d.start||'19:00') + '</div><div class="dot"></div>'
+        + '<div class="title">' + (d.title||'') + '</div>'
+        + (d.detail ? '<div class="detail">' + d.detail + '</div>' : '');
+      var timeline = document.querySelector('.timeline-section');
+      var footer = document.querySelector('.footer');
+      timeline.insertBefore(div, timeline.lastElementChild.nextSibling);
+      knownIds[id] = true;
+    }
+  });
+  // Remove events that are no longer in Firebase
+  document.querySelectorAll('.event[data-id]').forEach(function(ev){
+    var id = ev.dataset.id;
+    if(!edits[id] && id.indexOf('enew')!==0){
+      // Original event removed from coordination
+    }
+    if(!edits[id] && knownIds[id]){
+      // Could be deleted - but only for dynamically added ones
+    }
+  });
+}
+
+function addMin30(t){var p=t.split(':'),h=+p[0],m=+p[1]+30;if(m>=60){h++;m-=60}if(h>=24)h-=24;return(h<10?'0':'')+h+':'+(m<10?'0':'')+m}
+
+function fetchFirebase(){
+  fetch(FIREBASE_URL+'/wedding.json').then(function(r){return r.json()}).then(function(data){
+    if(!data)return;
     var b=document.getElementById('delayBanner');
     if(data.delay&&data.delay.active){
-      b.textContent=data.delay.minutes>0?'\u26A0 L\u00e9ger d\u00e9calage sur le programme : ~'+data.delay.minutes+' min':'\u26A0 L\u00e9ger d\u00e9calage sur le programme';
+      b.textContent=data.delay.minutes>0?'\u26A0 L\u00e9ger d\u00e9calage : ~'+data.delay.minutes+' min sur le programme':'\u26A0 L\u00e9ger d\u00e9calage sur le programme';
       b.classList.add('visible');
     }else{b.classList.remove('visible')}
-
-    // Edits — apply time changes to matching events
-    if(data.edits){
-      document.querySelectorAll('.event[data-id]').forEach(function(ev){
-        var id=ev.dataset.id;
-        if(!data.edits[id])return;
-        var d=data.edits[id];
-        if(d.start&&d.start!==ev.dataset.start){
-          ev.dataset.start=d.start;
-          ev.querySelector('.time-badge').textContent=fmt(d.start);
-        }
-        if(d.title){var t=ev.querySelector('.title');if(t)t.textContent=d.title}
-        if(d.detail){var dt=ev.querySelector('.detail');if(dt)dt.textContent=d.detail}
-      });
-      // Re-run timeline update after applying edits
-      update();
-    }
-  })
-  .catch(function(e){console.log('Firebase read error',e)});
+    if(data.edits){ applyFirebaseEdits(data.edits); }
+    update();
+  }).catch(function(e){console.log('Firebase error',e)});
 }
 
 // ── PROGRESS ──
-function updateProgress(){var now=new Date(),s=pt('13:15'),e=pt('04:01'),f=document.getElementById('progressFill'),d=document.getElementById('progressDot');if(now<s){f.style.height='0%';d.style.top='0%';return}if(now>e){f.style.height='100%';d.style.top='calc(100% - 12px)';return}var pct=Math.min(100,Math.max(0,((now-s)/(e-s))*100));f.style.height=pct+'%';d.style.top='calc('+pct+'% - 6px)'}
+function updateProgress(){
+  var now=new Date(),s=pt('13:15'),e=pt('04:01'),f=document.getElementById('progressFill'),d=document.getElementById('progressDot');
+  if(now<s){f.style.height='0%';d.style.top='0%';return}
+  if(now>e){f.style.height='100%';d.style.top='calc(100% - 12px)';return}
+  var pct=Math.min(100,Math.max(0,((now-s)/(e-s))*100));
+  f.style.height=pct+'%';d.style.top='calc('+pct+'% - 6px)';
+}
 
 // ── MAIN ──
 function update(){
@@ -167,11 +175,11 @@ function update(){
   if(found&&!window._sc){window._sc=true;setTimeout(function(){var el=document.querySelector('.event.active');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},500)}
   updateProgress();
 }
-
 update();
-fetchFromFirebase();
+fetchFirebase();
 setInterval(update,15000);
-setInterval(fetchFromFirebase,10000); // Poll every 10s
+setInterval(updateProgress,5000);
+setInterval(fetchFirebase,10000);
 </script>
 </body>
 </html>
