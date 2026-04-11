@@ -61,7 +61,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--tex
 <body>
 <div class="progress-track"><div class="progress-fill" id="progressFill"></div><div class="progress-dot" id="progressDot"></div></div>
 <div class="hero"><div class="hero-content"><h1>Emile <span class="ampersand">&</span> Ange</h1><div class="date">Samedi 11 Avril 2026</div><div class="lieu">Fénay — Ouges, Bourgogne</div></div><div class="scroll-hint">↓ Programme</div></div>
-<div class="countdown-bar" id="statusBar">Chargement…</div>
+<div class="countdown-bar" id="statusBar" onclick="scrollToActive()" style="cursor:pointer">Chargement…</div>
 <div class="delay-banner" id="delayBanner"></div>
 
 <div class="timeline-section">
@@ -153,7 +153,8 @@ function fetchFirebase(){
       b.classList.add('visible');
     }else{b.classList.remove('visible')}
     if(data.edits){ applyFirebaseEdits(data.edits); }
-    update();
+    
+update();
   }).catch(function(e){console.log('Firebase error',e)});
 }
 
@@ -175,6 +176,7 @@ function update(){
   if(found&&!window._sc){window._sc=true;setTimeout(function(){var el=document.querySelector('.event.active');if(el)el.scrollIntoView({behavior:'smooth',block:'center'})},500)}
   updateProgress();
 }
+function scrollToActive(){var el=document.querySelector(".event.active");if(el)el.scrollIntoView({behavior:"smooth",block:"center"})}
 update();
 fetchFirebase();
 setInterval(update,15000);

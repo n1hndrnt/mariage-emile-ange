@@ -98,7 +98,7 @@ body.edit-mode .btn-add-event{display:flex}
 <body>
 <div class="progress-track"><div class="progress-fill" id="progressFill"></div><div class="progress-dot" id="progressDot"></div></div>
 <div class="hero"><div class="hero-content"><h1>Emile <span class="ampersand">&</span> Ange</h1><div class="date">Samedi 11 Avril 2026</div><div class="badge-coord">Version coordination</div></div><div class="scroll-hint">↓ Programme</div></div>
-<div class="countdown-bar" id="statusBar">Chargement…</div>
+<div class="countdown-bar" id="statusBar" onclick="scrollToActive()" style="cursor:pointer">Chargement…</div>
 <div class="toolbar">
   <button class="btn-edit" id="btnEdit" onclick="toggleEdit()">✏️ Modifier</button>
   <span class="sync-dot" id="syncDot" title="Synchronisation"></span>
@@ -114,7 +114,7 @@ body.edit-mode .btn-add-event{display:flex}
 
 <div class="addresses-recap">
   <div class="section-title">Adresses clés</div>
-  <div class="addr-card"><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Chez Tante Rose — 9 Rue de la Goutte d'Or, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank">🗺 Plans</a></div></div></div>
+  <div class="addr-card"><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Chez la mariée — 2 rue Philibert de la Mare, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=2+rue+Philibert+de+la+Mare+21000+Dijon" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=2+rue+Philibert+de+la+Mare+Dijon&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=2+rue+Philibert+de+la+Mare+21000+Dijon" target="_blank">🗺 Plans</a></div></div></div>
   <div class="addr-card"><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Chez les mariés — 36 bd Voltaire, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=36+boulevard+Voltaire+21000+Dijon" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=36+boulevard+Voltaire+Dijon&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=36+boulevard+Voltaire+21000+Dijon" target="_blank">🗺 Plans</a></div></div></div>
   <div class="addr-card"><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Église — Rue de l'Église, 21600 Fénay</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+21600+Fenay" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank">🗺 Plans</a></div></div></div>
   <div class="addr-card"><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Photos — 1 Allée de la Mairie, Longvic</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=1+Allee+de+la+Mairie+Longvic" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=1+Allee+de+la+Mairie+Longvic&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=1+Allee+de+la+Mairie+Longvic" target="_blank">🗺 Plans</a></div></div></div>
@@ -123,7 +123,7 @@ body.edit-mode .btn-add-event{display:flex}
 
 <div class="timeline-section" id="timeline">
   <div class="section-title">Matin</div>
-  <div class="event" data-start="12:00" data-end="13:15" data-id="e1" data-orig="12:00"><div class="time-badge"><span class="time-badge-text">12h00</span><div class="time-edit"><input type="time" value="12:00" onchange="updateTime(this)"></div></div><div class="dot"></div><button class="btn-delete-event" onclick="deleteEvent(this)" title="Supprimer">&times;</button><div class="title editable" contenteditable="false">Le marié va chercher la mariée</div><div class="detail editable" contenteditable="false">Départ de chez Tante Rose.</div><div class="responsable editable" contenteditable="false">Emile / Vicky / Angélique</div><div class="orga-note editable" contenteditable="false">⚙ Communiquer toutes les adresses à Vicky. Angélique s'assure que le marié est à l'heure.</div><div class="address-block"><div class="address-text editable" contenteditable="false">📍 9 Rue de la Goutte d'Or, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=9+Rue+de+la+Goutte+d%27Or+Dijon&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=9+Rue+de+la+Goutte+d%27Or+21000+Dijon" target="_blank">🗺 Plans</a></div></div></div>
+  <div class="event" data-start="12:00" data-end="13:15" data-id="e1" data-orig="12:00"><div class="time-badge"><span class="time-badge-text">12h00</span><div class="time-edit"><input type="time" value="12:00" onchange="updateTime(this)"></div></div><div class="dot"></div><button class="btn-delete-event" onclick="deleteEvent(this)" title="Supprimer">&times;</button><div class="title editable" contenteditable="false">Le marié va chercher la mariée</div><div class="detail editable" contenteditable="false">Départ de chez la mariée.</div><div class="responsable editable" contenteditable="false">Emile / Vicky / Angélique</div><div class="orga-note editable" contenteditable="false">⚙ Communiquer toutes les adresses à Vicky. Angélique s'assure que le marié est à l'heure.</div><div class="address-block"><div class="address-text editable" contenteditable="false">📍 2 rue Philibert de la Mare, 21000 Dijon</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=2+rue+Philibert+de+la+Mare+21000+Dijon" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=2+rue+Philibert+de+la+Mare+Dijon&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=2+rue+Philibert+de+la+Mare+21000+Dijon" target="_blank">🗺 Plans</a></div></div></div>
 
   <div class="section-title">Cérémonie — 14h</div>
   <div class="event" data-start="13:15" data-end="14:00" data-id="e2" data-orig="13:15"><div class="time-badge"><span class="time-badge-text">13h15</span><div class="time-edit"><input type="time" value="13:15" onchange="updateTime(this)"></div></div><div class="dot"></div><button class="btn-delete-event" onclick="deleteEvent(this)" title="Supprimer">&times;</button><div class="title editable" contenteditable="false">Accueil des invités à l'église</div><div class="detail editable" contenteditable="false">Placement : gauche Ange, droite Emile.</div><div class="responsable editable" contenteditable="false">Immaculée / Eric / Leslie / Fabrice</div><div class="orga-note editable" contenteditable="false">⚙ Gère l'ordre et les places.</div><div class="address-block"><div class="address-text editable" contenteditable="false">📍 Église Notre Dame de Domois, Rue de l'Église, 21600 Fénay</div><div class="nav-links"><a class="gmaps" href="https://www.google.com/maps/search/?api=1&query=Eglise+Sanctuaire+Notre+Dame+de+Domois+21600+Fenay" target="_blank">📍 Maps</a><a class="waze" href="https://waze.com/ul?q=Eglise+Notre+Dame+de+Domois+Fenay&navigate=yes" target="_blank">🚗 Waze</a><a class="apple" href="https://maps.apple.com/?q=Eglise+Sanctuaire+Notre+Dame+de+Domois+Fenay" target="_blank">🗺 Plans</a></div></div></div>
@@ -204,7 +204,8 @@ function updateTime(input){
   var ev=input.closest('.event');
   ev.dataset.start=input.value;
   ev.querySelector('.time-badge-text').textContent=fmt(input.value);
-  sync();update();
+  sync();
+update();
 }
 document.addEventListener('input',function(e){if(e.target.classList&&e.target.classList.contains('editable')&&editMode)sync()});
 
@@ -236,7 +237,8 @@ function confirmDelay(){
   b.classList.add('visible');
   document.getElementById('btnDelay').classList.add('active');document.getElementById('btnDelay').textContent='\u26A0 +'+v+'min';
   document.getElementById('delayMin').style.display='none';document.getElementById('btnConfirm').style.display='none';
-  sync();update();
+  sync();
+update();
 }
 function resetDelay(){
   currentDelay={active:false,minutes:0};
@@ -251,7 +253,8 @@ function resetDelay(){
   document.getElementById('delayMin').value='';
   document.getElementById('delayMin').style.display='none';document.getElementById('btnConfirm').style.display='none';document.getElementById('btnReset').style.display='none';
   document.getElementById('btnDelay').classList.remove('active');document.getElementById('btnDelay').textContent='\u26A0 Signaler';
-  sync();update();
+  sync();
+update();
 }
 
 // ── PROGRESS (updates every 5s for smooth movement) ──
@@ -301,8 +304,10 @@ function deleteEvent(btn){
   var ev = btn.closest('.event');
   ev.remove();
   sync();
-  update();
+  
+update();
 }
+function scrollToActive(){var el=document.querySelector(".event.active");if(el)el.scrollIntoView({behavior:"smooth",block:"center"})}
 update();
 setInterval(update,15000);
 setInterval(updateProgress,5000);
