@@ -112,6 +112,7 @@ function applyFirebaseEdits(edits){
     var ev = document.querySelector('.event[data-id="'+id+'"]');
     if(ev){
       if(d.start){ ev.dataset.start = d.start; ev.querySelector('.time-badge').textContent = fmt(d.start); }
+      if(d.end){ ev.dataset.end = d.end; }
       if(d.title){ var t=ev.querySelector('.title'); if(t) t.textContent = d.title; }
       if(d.detail){ var dt=ev.querySelector('.detail'); if(dt) dt.textContent = d.detail; }
     } else if(id.indexOf('enew')===0 && !knownIds[id] && d.title !== 'Nouvelle étape'){
